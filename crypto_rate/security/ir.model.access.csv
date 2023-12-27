@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crypto_currency_rate_wizard,crypto_currency_rate_wizard,model_crypto_currency_rate_wizard,crypto_kit.group_crypto,1,1,1,1
