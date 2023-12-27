@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="crypto_kit.menu_crypto_main" model="ir.ui.menu">
+        <field name="parent_id" ref="account_accountant.menu_accounting"/>
+    </record>
+</odoo>
