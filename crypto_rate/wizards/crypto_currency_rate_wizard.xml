@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_crypto_currency_rate_wizard" model="ir.ui.view">
+        <field name="name">crypto.currency.rate.wizard</field>
+        <field name="model">crypto.currency.rate.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="currency_id"/>
+                    </group>
+                    <group>
+                        <field name="rate_date"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="get_crypto_currency_rate"
+                            type="object"
+                            string="Get rate"
+                            class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
