@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_partner_bank_form_crypto_kraken" model="ir.ui.view">
+        <field name="name">res.partner.bank.form.crypto.kraken</field>
+        <field name="model">res.partner.bank</field>
+        <field name="inherit_id" ref="base.view_partner_bank_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group attrs="{'invisible': [('crypto_provider', '!=', 'kraken')]}">
+                    <group>
+                        <field name="kraken_api_key" password="True"/>
+                        <field name="kraken_api_sec" password="True"/>
+                    </group>
+                    <group groups="base.group_no_one">
+                        <field name="kraken_ledger_start"/>
+                        <field name="kraken_ledger_end"/>
+                        <field name="kraken_ledger_ofs"/>
+                        <button name="kraken_reset"
+                                type="object"
+                                string="Reset"
+                                class="btn-outline-warning"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

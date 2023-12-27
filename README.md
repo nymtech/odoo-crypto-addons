@@ -11,6 +11,7 @@
 #### [CryptoSync](crypto_sync)
 
 - [Etherscan](crypto_sync_etherscan)
+- [Kraken](crypto_sync_kraken)
 
 Technical addons:
 
