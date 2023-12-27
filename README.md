@@ -8,6 +8,8 @@
 
 - [CoinGecko](crypto_rate_coingecko)
 
+#### [CryptoSync](crypto_sync)
+
 Technical addons:
 
 - [account_accountant_crypto](account_accountant_crypto)

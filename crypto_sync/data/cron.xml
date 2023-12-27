@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cron_crypto_sync" model="ir.cron">
+        <field name="name">CryptoSync</field>
+        <field name="model_id" ref="base.model_res_partner_bank"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_crypto_sync()</field>
+        <field name="interval_number">5</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">-1</field>
+    </record>
+    <record id="cron_crypto_sync_reset_states" model="ir.cron">
+        <field name="name">CryptoSync: Reset states</field>
+        <field name="model_id" ref="base.model_res_partner_bank"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_crypto_sync_reset_states()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+</odoo>

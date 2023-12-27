@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_crypto_transaction_detail_tree" model="ir.ui.view">
+        <field name="name">crypto.transaction.detail.tree</field>
+        <field name="model">crypto.transaction.detail</field>
+        <field name="arch" type="xml">
+            <tree create="0" edit="0" delete="0">
+                <field name="name"/>
+                <button name="action_open_parent"
+                        type="object"
+                        title="Open Transaction"
+                        class="btn-sm btn-link mb4 fa fa-arrow-right"/>
+                <field name="date"/>
+                <field name="bank_account_id"/>
+                <field name="address" optional="show"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="value"/>
+                <field name="description" optional="hide"/>
+                <field name="state" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_crypto_transaction_detail_search" model="ir.ui.view">
+        <field name="name">crypto.transaction.detail.search</field>
+        <field name="model">crypto.transaction.detail</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="bank_account_id"/>
+                <field name="address"/>
+                <field name="value"/>
+                <field name="currency_id"/>
+                <filter string="Ready" name="ready" domain="[('state', '=', 'ready')]"/>
+                <filter string="Done" name="done" domain="[('state', '=', 'done')]"/>
+                <filter string="Ignored" name="ignored" domain="[('state', '=', 'ignored')]"/>
+                <filter string="Date" name="date" date="date"/>
+                <filter name="group_by_state" string="State" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_crypto_transaction_detail" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Processed Crypto Transactions</field>
+        <field name="res_model">crypto.transaction.detail</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_crypto_transaction_detail_tree"/>
+        <field name="context">{"search_default_group_by_state": 1}</field>
+    </record>
+</odoo>

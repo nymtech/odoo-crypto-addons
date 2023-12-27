@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        name="Data"
+        id="menu_crypto_data"
+        parent="crypto_kit.menu_crypto_main"
+        sequence="10">
+        <menuitem
+            name="Transactions" 
+            id="menu_crypto_transaction"
+            action="action_crypto_transaction"
+            sequence="10"/>
+        <menuitem
+            name="Processed Transactions" 
+            id="menu_crypto_transaction_detail"
+            action="action_crypto_transaction_detail"
+            sequence="20"/>
+        <menuitem
+            name="Statements"
+            id="menu_account_bank_statement"
+            action="action_account_bank_statement"
+            sequence="30"
+            groups="crypto_kit.group_crypto"/>
+    </menuitem>
+    <menuitem
+        name="Wizards" 
+        id="menu_crypto_wizards"
+        parent="crypto_kit.menu_crypto_main"
+        sequence="20">
+        <menuitem
+            name="Import Transactions" 
+            id="menu_crypto_import_transactions_wizard"
+            action="action_crypto_import_transactions_wizard"
+            sequence="10"/>
+        <menuitem
+            name="Generate Statements" 
+            id="menu_crypto_generate_statements_wizard"
+            action="action_crypto_generate_statements_wizard"
+            sequence="20"/>
+    </menuitem>
+</odoo>

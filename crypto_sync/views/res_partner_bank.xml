@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_partner_bank_form_crypto" model="ir.ui.view">
+        <field name="name">res.partner.bank.form.crypto</field>
+        <field name="model">res.partner.bank</field>
+        <field name="inherit_id" ref="base.view_partner_bank_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group groups="crypto_kit.group_crypto"
+                       attrs="{'invisible': [('crypto_provider', '=', False)]}">
+                    <group>
+                        <field name="crypto_provider"/>
+                        <field name="crypto_auto_sync"/>
+                        <field name="crypto_sync_done" groups="base.group_no_one"/>
+                        <field name="crypto_sync_counter" groups="base.group_no_one"/>
+                    </group>
+                </group>
+            </xpath>
+            <xpath expr="//sheet/widget[@name='web_ribbon']" position="before">
+                <div class="oe_button_box" name="button_box">
+                    <field name="explorer_link" invisible="1"/>
+                    <button name="open_on_explorer"
+                            type="object"
+                            string="Open on explorer"
+                            class="oe_stat_button"
+                            icon="fa-link"
+                            attrs="{'invisible': [('explorer_link', '=', False)]}"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

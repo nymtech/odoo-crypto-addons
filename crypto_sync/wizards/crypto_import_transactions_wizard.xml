@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_crypto_import_transactions_wizard" model="ir.ui.view">
+        <field name="name">crypto.import.transactions.wizard</field>
+        <field name="model">crypto.import.transactions.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="bank_account_ids" widget="many2many_tags"
+                               attrs="{'invisible': [('use_csv', '=', True)], 'required': [('use_csv', '=', False)]}"/>
+                        <field name="bank_account_id"
+                               attrs="{'invisible': [('use_csv', '=', False)], 'required': [('use_csv', '=', True)]}"/>
+                    </group>
+                    <group>
+                        <field name="use_csv"/>
+                        <field name="csv_filename" invisible="1"/>
+                        <field name="csv_file" filename="csv_filename"
+                               attrs="{'invisible': [('use_csv', '=', False)], 'required': [('use_csv', '=', True)]}"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="get_transactions_from_api"
+                            type="object"
+                            string="Import Transactions from API"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('use_csv', '=', True)]}"/>
+                    <button name="get_transactions_from_csv"
+                            type="object"
+                            string="Import Transactions from CSV"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('use_csv', '=', False)]}"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_crypto_import_transactions_wizard" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Import Transactions</field>
+        <field name="res_model">crypto.import.transactions.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_crypto_import_transactions_wizard"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

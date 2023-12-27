@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_bank_statement_form_crypto" model="ir.ui.view">
+        <field name="name">account.bank.statement.form.crypto</field>
+        <field name="model">account.bank.statement</field>
+        <field name="inherit_id" ref="account.view_bank_statement_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='balance_start']" position="after">
+                <button name="recompute_balance"
+                        type="object"
+                        context="{'called_from_interface': True}"
+                        title="Recompute balance"
+                        class="btn-sm btn-link mb4 fa fa-refresh"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/tree/field[last()]" position="after">
+                <field name="crypto_transaction_id"
+                       groups="crypto_kit.group_crypto"
+                       optional="hidden"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/tree/button[@name='button_undo_reconciliation']" position="before">
+                <field name="tx_explorer_link" invisible="1"/>
+                <button name="open_tx_on_explorer"
+                        type="object"
+                        string="Open on explorer"
+                        icon="fa-link"
+                        attrs="{'invisible': [('tx_explorer_link', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="action_account_bank_statement" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Crypto Statements</field>
+        <field name="res_model">account.bank.statement</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
+        <field name="domain">[("journal_id.bank_statements_source", "=", "crypto")]</field>
+    </record>
+</odoo>

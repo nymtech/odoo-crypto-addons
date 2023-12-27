@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- crypto.transaction -->
+    <record id="action_crypto_transaction_process" model="ir.actions.server">
+        <field name="name">Process</field>
+        <field name="model_id" ref="crypto_sync.model_crypto_transaction"/>
+        <field name="binding_model_id" ref="crypto_sync.model_crypto_transaction"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">records.process()</field>
+    </record>
+    <record id="action_crypto_transaction_ignore" model="ir.actions.server">
+        <field name="name">Ignore</field>
+        <field name="model_id" ref="crypto_sync.model_crypto_transaction"/>
+        <field name="binding_model_id" ref="crypto_sync.model_crypto_transaction"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">records.ignore()</field>
+    </record>
+    <record id="action_crypto_transaction_revert_ignore" model="ir.actions.server">
+        <field name="name">Revert Ignore</field>
+        <field name="model_id" ref="crypto_sync.model_crypto_transaction"/>
+        <field name="binding_model_id" ref="crypto_sync.model_crypto_transaction"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">records.revert_ignore()</field>
+    </record>
+    <record id="action_crypto_transaction_reset" model="ir.actions.server">
+        <field name="name">Reset</field>
+        <field name="model_id" ref="crypto_sync.model_crypto_transaction"/>
+        <field name="binding_model_id" ref="crypto_sync.model_crypto_transaction"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">records.reset()</field>
+    </record>
+    <record id="action_crypto_transaction_ignore_rest" model="ir.actions.server">
+        <field name="name">Ignore Rest Lines</field>
+        <field name="model_id" ref="crypto_sync.model_crypto_transaction"/>
+        <field name="binding_model_id" ref="crypto_sync.model_crypto_transaction"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">records.ignore_rest()</field>
+    </record>
+    <record id="action_crypto_transaction_revert_ignore_rest" model="ir.actions.server">
+        <field name="name">Revert Ignored Lines</field>
+        <field name="model_id" ref="crypto_sync.model_crypto_transaction"/>
+        <field name="binding_model_id" ref="crypto_sync.model_crypto_transaction"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">records.revert_ignore_rest()</field>
+    </record>
+
+    <!-- crypto.transaction.detail -->
+    <record id="action_crypto_transaction_detail_generate_statements" model="ir.actions.server">
+        <field name="name">Generate Statements</field>
+        <field name="model_id" ref="crypto_sync.model_crypto_transaction_detail"/>
+        <field name="binding_model_id" ref="crypto_sync.model_crypto_transaction_detail"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">records.generate_statements()</field>
+    </record>
+ 
+    <!-- account.bank.statement -->
+    <record id="action_account_bank_statement_recompute_balance" model="ir.actions.server">
+        <field name="name">Recompute Balance</field>
+        <field name="model_id" ref="account.model_account_bank_statement"/>
+        <field name="binding_model_id" ref="account.model_account_bank_statement"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">records.recompute_balance()</field>
+    </record>
+
+</odoo>
