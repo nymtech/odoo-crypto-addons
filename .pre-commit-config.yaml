@@ -1,0 +1,13 @@
+# File introduces automated checks triggered on git events
+# to enable run `pip install pre-commit && pre-commit install`
+
+repos:
+  - repo: https://github.com/google/yapf
+    rev: v0.31.0
+    hooks:
+      - id: yapf
+        name: yapf
+        language: python
+        entry: yapf
+        args: [-i, -vv]
+        types: [python]
