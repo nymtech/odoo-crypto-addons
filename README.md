@@ -10,6 +10,8 @@
 
 #### [CryptoSync](crypto_sync)
 
+- [Etherscan](crypto_sync_etherscan)
+
 Technical addons:
 
 - [account_accountant_crypto](account_accountant_crypto)

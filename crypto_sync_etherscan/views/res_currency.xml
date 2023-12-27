@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_currency_form_crypto_etherscan" model="ir.ui.view">
+        <field name="name">res.currency.form.crypto.etherscan</field>
+        <field name="model">res.currency</field>
+        <field name="inherit_id" ref="base.view_currency_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='crypto_only']" position="inside">
+                <label for="ethereum_smart_contract"/>
+                <div class="o_row">
+                    <field name="ethereum_smart_contract"/>
+                    <button name="open_etherscan"
+                            type="object"
+                            title="View on Etherscan"
+                            class="btn-sm btn-link mb4 fa fa-external-link"
+                            attrs="{'invisible': ['|', ('ethereum_smart_contract', '=', False), ('ethereum_smart_contract', '=', 'ETH')]}"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

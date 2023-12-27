@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_bank_form_crypto_etherscan" model="ir.ui.view">
+        <field name="name">res.bank.form.crypto.etherscan</field>
+        <field name="model">res.bank</field>
+        <field name="inherit_id" ref="base.view_res_bank_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='crypto']" position="inside">
+                <field name="etherscan_api_key"
+                       password="True"
+                       attrs="{'invisible': [('crypto_provider', '!=', 'etherscan')]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
