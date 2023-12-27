@@ -13,6 +13,7 @@
 - [Cosmos](crypto_sync_cosmos)
 - [Etherscan](crypto_sync_etherscan)
 - [Kraken](crypto_sync_kraken)
+- [OKX](crypto_sync_okx)
 
 Technical addons:
 

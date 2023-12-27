@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_partner_bank_form_crypto_okx" model="ir.ui.view">
+        <field name="name">res.partner.bank.form.crypto.okx</field>
+        <field name="model">res.partner.bank</field>
+        <field name="inherit_id" ref="base.view_partner_bank_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group attrs="{'invisible': [('crypto_provider', '!=', 'okx')]}">
+                    <group>
+                        <field name="okx_api_key" password="True"/>
+                        <field name="okx_api_sec" password="True"/>
+                        <field name="okx_api_passphrase" password="True"/>
+                    </group>
+                    <group groups="base.group_no_one">
+                        <field name="okx_trade_after"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

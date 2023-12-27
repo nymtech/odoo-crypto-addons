@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_currency_form_crypto_okx" model="ir.ui.view">
+        <field name="name">res.currency.form.crypto.okx</field>
+        <field name="model">res.currency</field>
+        <field name="inherit_id" ref="base.view_currency_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='crypto_fiat']" position="inside">
+                <field name="okx_api_code"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
