@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        name="Cryptocurrencies"
+        id="menu_crypto_main"
+        parent="account.menu_finance"
+        sequence="10"/>
+</odoo>

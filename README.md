@@ -2,6 +2,8 @@
 
 ## Addons
 
+### [CryptoKit](crypto_kit)
+
 ## Credits
 
 A big thanks to [Nym Technologies SA](https://nymtech.net/) and [Bity SA](https://bity.com/) for technical explanations and funding!
