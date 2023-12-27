@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_currency_form_crypto_rate_coingecko" model="ir.ui.view">
+        <field name="name">res.currency.form.crypto.rate.coingecko</field>
+        <field name="model">res.currency</field>
+        <field name="inherit_id" ref="base.view_currency_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='crypto_only']" position="inside">
+                <label for="coingecko_api_code"/>
+                <div class="o_row">
+                    <field name="coingecko_api_code"/>
+                    <button name="open_on_coingecko"
+                            type="object"
+                            title="Open on CoinGecko"
+                            class="btn-sm btn-link mb4 fa fa-external-link"
+                            attrs="{'invisible': [('coingecko_api_code', '=', False)]}"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

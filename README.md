@@ -6,6 +6,8 @@
 
 #### [CryptoRate](crypto_rate)
 
+- [CoinGecko](crypto_rate_coingecko)
+
 Technical addons:
 
 - [account_accountant_crypto](account_accountant_crypto)
