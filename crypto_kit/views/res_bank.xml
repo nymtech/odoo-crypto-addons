@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_bank_form_crypto" model="ir.ui.view">
+        <field name="name">res.bank.form.crypto</field>
+        <field name="model">res.bank</field>
+        <field name="inherit_id" ref="base.view_res_bank_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group name="crypto" groups="crypto_kit.group_crypto">
+                    <field name="crypto_provider"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

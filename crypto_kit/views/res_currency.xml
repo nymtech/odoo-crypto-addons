@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_currency_form_crypto" model="ir.ui.view">
+        <field name="name">res.currency.form.crypto</field>
+        <field name="model">res.currency</field>
+        <field name="inherit_id" ref="base.view_currency_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="Cryptocurrency Settings" groups="crypto_kit.group_crypto">
+                    <group>
+                        <field name="is_crypto"/>
+                    </group>
+                    <group name="crypto_fiat">
+                        <!-- Inherit this element to add all new fields related to fiat AND crypto -->
+                    </group>
+                    <group name="crypto_only" attrs="{'invisible': [('is_crypto', '=', False)]}">
+                        <!-- Inherit this element to add all new fields related to cryptocurrencies only -->
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_res_currency_search_crypto" model="ir.ui.view">
+        <field name="name">res.currency.search.crypto</field>
+        <field name="model">res.currency</field>
+        <field name="inherit_id" ref="base.view_currency_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter name="group_by_is_crypto" string="Crypto/FIAT" context="{'group_by': 'is_crypto'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
