@@ -10,6 +10,7 @@
 
 #### [CryptoSync](crypto_sync)
 
+- [Cosmos](crypto_sync_cosmos)
 - [Etherscan](crypto_sync_etherscan)
 - [Kraken](crypto_sync_kraken)
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_bank_form_crypto_cosmos" model="ir.ui.view">
+        <field name="name">res.bank.form.crypto.cosmos</field>
+        <field name="model">res.bank</field>
+        <field name="inherit_id" ref="base.view_res_bank_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='crypto']" position="inside">
+                <field name="cosmos_graphql_url" attrs="{'invisible': [('crypto_provider', '!=', 'cosmos')]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_currency_form_crypto_cosmos" model="ir.ui.view">
+        <field name="name">res.currency.form.crypto.cosmos</field>
+        <field name="model">res.currency</field>
+        <field name="inherit_id" ref="base.view_currency_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='crypto_only']" position="inside">
+                <field name="cosmos_api_code"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
