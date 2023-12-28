@@ -5,15 +5,17 @@
         <field name="model">res.currency</field>
         <field name="inherit_id" ref="base.view_currency_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//div[@name='button_box']/button" position="before">
-                <button name="action_crypto_currency_rate_wizard"
-                        type="object"
-                        string="Get rates"
-                        class="oe_stat_button"
-                        icon="fa-arrow-circle-o-down"
-                        widget="statinfo"
-                        groups="crypto_kit.group_crypto"
-                        attrs="{'invisible': [('crypto_rate_provider', '=', False)]}"/>
+            <xpath expr="//sheet/group" position="before">
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_crypto_currency_rate_wizard"
+                            type="object"
+                            string="Get rates"
+                            class="oe_stat_button"
+                            icon="fa-arrow-circle-o-down"
+                            widget="statinfo"
+                            groups="crypto_kit.group_crypto"
+                            attrs="{'invisible': [('crypto_rate_provider', '=', False)]}"/>
+                </div>
             </xpath>
             <xpath expr="//group[@name='crypto_fiat']" position="inside">
                 <field name="crypto_rate_provider"/>
