@@ -1,4 +1,4 @@
-# CryptoKit for Odoo 14.0
+# CryptoKit for Odoo 15.0
 
 ## Addons
 
