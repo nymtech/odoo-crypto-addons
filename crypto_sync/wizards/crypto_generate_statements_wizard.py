@@ -20,11 +20,5 @@ class CryptoGenerateStatementsWizard(models.TransientModel):
         if self.date_to:
             domain.append(("date", "<=", self.date_to))
         if self.bank_account_ids:
-            domain.append(
-                ("transaction_id.bank_account_id", "in", self.bank_account_ids.ids)
-            )
-        return (
-            self.env["crypto.transaction.detail"].search(domain).generate_statements(
-                self.group_by
-            )
-        )
+            domain.append(("transaction_id.bank_account_id", "in", self.bank_account_ids.ids))
+        return self.env["crypto.transaction.detail"].search(domain).generate_statements(self.group_by)

@@ -1,2 +1,1 @@
-from . import res_bank
-from . import res_currency
+from . import res_bank, res_currency

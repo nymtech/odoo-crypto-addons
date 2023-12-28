@@ -60,7 +60,7 @@
         <field name="state">code</field>
         <field name="code">records.generate_statements()</field>
     </record>
- 
+
     <!-- account.bank.statement -->
     <record id="action_account_bank_statement_recompute_balance" model="ir.actions.server">
         <field name="name">Recompute Balance</field>
