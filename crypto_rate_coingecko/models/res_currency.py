@@ -56,7 +56,7 @@ class ResCurrency(models.Model):
             self.env["res.currency.rate"].create({
                 "name": rate_date,
                 "currency_id": currency.id,
-                "rate": rate,
+                "company_rate": rate,
             })
 
     def open_on_coingecko(self):
