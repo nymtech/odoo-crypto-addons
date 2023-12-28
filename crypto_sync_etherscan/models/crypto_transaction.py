@@ -9,16 +9,13 @@ class CryptoTransaction(models.Model):
 
     def process(self):
         super().process()
-        transactions = self.filtered(
-            lambda x: x.bank_account_id.bank_id.crypto_provider == "etherscan"
-        )
+        transactions = self.filtered(lambda x: x.bank_account_id.bank_id.crypto_provider == "etherscan")
         if not transactions:
             return
 
         currencies = {
             cur.ethereum_smart_contract: cur
-            for cur in
-            self.env["res.currency"].search([("ethereum_smart_contract", "!=", False)])
+            for cur in self.env["res.currency"].search([("ethereum_smart_contract", "!=", False)])
         }
         if "ETH" not in currencies:
             transactions.state = "error"
@@ -43,9 +40,7 @@ class CryptoTransaction(models.Model):
                             continue  # ignore
                         else:
                             error = True
-                            tx.error = _(
-                                "Unknown internal transaction type! Please contact us."
-                            )
+                            tx.error = _("Unknown internal transaction type! Please contact us.")
 
                     multiplier = -1 if address == data["from"] else 1
                     exp = -float(data.get("tokenDecimal", 18))
@@ -77,18 +72,17 @@ class CryptoTransaction(models.Model):
                         self.env["crypto.transaction.detail"].create(out)
 
                     if tx.provider_source == "txlist" and multiplier == -1:
-                        fee = (
-                            -float(data.get("gasPrice", 0)) *
-                            float(data.get("gasUsed", 0)) * 10**-18
-                        )
+                        fee = -float(data.get("gasPrice", 0)) * float(data.get("gasUsed", 0)) * 10**-18
                         if fee:
-                            self.env["crypto.transaction.detail"].create({
-                                "transaction_id": transaction.id,
-                                "name": "Fee: " + data["hash"],
-                                "date": datetime.fromtimestamp(int(data["timeStamp"])),
-                                "currency_id": ETH.id,
-                                "value": fee,
-                            })
+                            self.env["crypto.transaction.detail"].create(
+                                {
+                                    "transaction_id": transaction.id,
+                                    "name": "Fee: " + data["hash"],
+                                    "date": datetime.fromtimestamp(int(data["timeStamp"])),
+                                    "currency_id": ETH.id,
+                                    "value": fee,
+                                }
+                            )
 
                 transaction.state = "error" if error else "ready"
             except Exception as e:
@@ -97,7 +91,5 @@ class CryptoTransaction(models.Model):
 
     def _compute_explorer_link(self):
         super()._compute_explorer_link()
-        for tx in self.filtered(
-            lambda x: x.bank_account_id.bank_id.crypto_provider == "etherscan"
-        ):
+        for tx in self.filtered(lambda x: x.bank_account_id.bank_id.crypto_provider == "etherscan"):
             tx.explorer_link = "https://etherscan.io/tx/" + tx.name

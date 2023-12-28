@@ -29,27 +29,32 @@ class CryptoImportTransactionsWizard(models.TransientModel):
     @api.depends("bank_account_ids")
     def _compute_bank_account_id(self):
         for wizard in self:
-            wizard.bank_account_id = wizard.bank_account_ids and wizard.bank_account_ids[
-                0]
+            wizard.bank_account_id = wizard.bank_account_ids and wizard.bank_account_ids[0]
 
     def get_transactions_from_api(self):
         return self.bank_account_ids.get_transactions_from_api().get_action_return()
 
     def get_transactions_from_csv(self):
-        csv_reader = csv.DictReader(
-            io.StringIO(base64.b64decode(self.csv_file).decode())
-        )
+        csv_reader = csv.DictReader(io.StringIO(base64.b64decode(self.csv_file).decode()))
         transactions = self.env["crypto.transaction"]
 
         i = 0
         for row in csv_reader:
             i += 1
-            transactions |= self.env["crypto.transaction"].create({
-                "name": self.csv_filename + ":" + str(i),
-                "bank_account_id": self.bank_account_id.id,
-                "input_ids": [(0, 0, {
-                    "from_csv": True,
-                    "raw": json.dumps(row),
-                })],
-            })
+            transactions |= self.env["crypto.transaction"].create(
+                {
+                    "name": self.csv_filename + ":" + str(i),
+                    "bank_account_id": self.bank_account_id.id,
+                    "input_ids": [
+                        (
+                            0,
+                            0,
+                            {
+                                "from_csv": True,
+                                "raw": json.dumps(row),
+                            },
+                        )
+                    ],
+                }
+            )
         return transactions.get_action_return()

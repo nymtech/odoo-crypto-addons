@@ -9,17 +9,17 @@ class CryptoTransaction(models.Model):
 
     def process(self):
         super().process()
-        transactions = self.filtered(
-            lambda x: x.bank_account_id.bank_id.crypto_provider == "kraken"
-        )
+        transactions = self.filtered(lambda x: x.bank_account_id.bank_id.crypto_provider == "kraken")
         if not transactions:
             return
 
         currencies = {
             cur.kraken_api_code: cur
-            for cur in self.env["res.currency"].search([
-                ("kraken_api_code", "!=", False),
-            ])
+            for cur in self.env["res.currency"].search(
+                [
+                    ("kraken_api_code", "!=", False),
+                ]
+            )
         }
 
         for transaction in transactions:

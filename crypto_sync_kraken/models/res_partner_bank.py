@@ -53,16 +53,20 @@ class ResPartnerBank(models.Model):
                     )
                     if exists:
                         continue
-                    transaction = self.env["crypto.transaction"].create({
-                        "name": ledger_id,
-                        "bank_account_id": bank_account.id,
-                    })
+                    transaction = self.env["crypto.transaction"].create(
+                        {
+                            "name": ledger_id,
+                            "bank_account_id": bank_account.id,
+                        }
+                    )
                     transactions |= transaction
-                self.env["crypto.transaction.source"].create({
-                    "transaction_id": transaction[0].id,
-                    "provider_source": "ledger",
-                    "raw": json.dumps((ledger_id, ledger_entry)),
-                })
+                self.env["crypto.transaction.source"].create(
+                    {
+                        "transaction_id": transaction[0].id,
+                        "provider_source": "ledger",
+                        "raw": json.dumps((ledger_id, ledger_entry)),
+                    }
+                )
 
             if bank_account.kraken_ledger_ofs == 0:
                 bank_account.kraken_ledger_end = ledger[0][0]

@@ -1,6 +1,3 @@
-from datetime import datetime
-
-from dateutil.relativedelta import relativedelta
 from odoo import _, fields, models
 from odoo.exceptions import UserError
 
@@ -8,9 +5,7 @@ from odoo.exceptions import UserError
 class ResPartnerBank(models.Model):
     _inherit = "res.partner.bank"
 
-    crypto_provider = fields.Selection(
-        string="Crypto Provider", related="bank_id.crypto_provider"
-    )
+    crypto_provider = fields.Selection(string="Crypto Provider", related="bank_id.crypto_provider")
     crypto_auto_sync = fields.Boolean("Synchronize automatically")
     crypto_sync_done = fields.Boolean("Synched for today")
     crypto_sync_counter = fields.Integer("Sync Counter")
@@ -44,10 +39,12 @@ class ResPartnerBank(models.Model):
             limit=1,
             count=True,
         ):
-            self.search([("crypto_auto_sync", "=", True)]).write({
-                "crypto_sync_done": False,
-                "crypto_sync_counter": 0,
-            })
+            self.search([("crypto_auto_sync", "=", True)]).write(
+                {
+                    "crypto_sync_done": False,
+                    "crypto_sync_counter": 0,
+                }
+            )
 
     def _compute_explorer_link(self):
         self.filtered(lambda x: not x.explorer_link).explorer_link = False
