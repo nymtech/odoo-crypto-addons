@@ -59,18 +59,13 @@ class AccountBankStatement(models.Model):
                 except Exception:
                     if self.env.context.get("called_from_interface"):
                         raise UserError(
-                            _(
-                                "An error occured during the Cosmos API query. Please try later or contact us."
-                            )
+                            _("An error occured during the Cosmos API query. Please try later or contact us.")
                         )
                     continue
 
                 if "errors" in data:
                     if self.env.context.get("called_from_interface"):
-                        raise UserError(
-                            _("An error was returned by the Cosmos API:\n{errors}"
-                             ).format(**data)
-                        )
+                        raise UserError(_("An error was returned by the Cosmos API:\n{errors}").format(**data))
                     continue
 
                 for coin in data["action_account_balance"]["coins"]:

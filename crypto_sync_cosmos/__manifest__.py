@@ -2,8 +2,7 @@
 {
     "name": "CryptoSync: Cosmos",
     "version": "14.0.0.2.0",
-    "description":
-        """
+    "description": """
 Sync transactions from the Cosmos blockchain.
 
 The GraphQL API used is provided by Nym Technologies and is expected to change.

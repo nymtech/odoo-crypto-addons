@@ -13,7 +13,7 @@ ruff = "^0.1"
 
 [tool.ruff]
 line-length = 120
-include = ['crypto_kit/*.py', 'crypto_rate/*.py', 'crypto_rate_coingecko/*.py', 'crypto_sync/*.py', 'crypto_sync_etherscan/*.py', 'crypto_sync_kraken/*.py', 'account_accountant_crypto/*.py']
+include = ['crypto_kit/*.py', 'crypto_rate/*.py', 'crypto_rate_coingecko/*.py', 'crypto_sync/*.py', 'crypto_sync_cosmos/*.py', 'crypto_sync_etherscan/*.py', 'crypto_sync_kraken/*.py', 'crypto_sync_okx/*.py', 'account_accountant_crypto/*.py']
 
 [tool.ruff.lint]
 select = [

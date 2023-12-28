@@ -55,16 +55,20 @@ class ResPartnerBank(models.Model):
                     )
                     if exists:
                         continue
-                    transaction = self.env["crypto.transaction"].create({
-                        "name": deposit["depId"],
-                        "bank_account_id": bank_account.id,
-                    })
+                    transaction = self.env["crypto.transaction"].create(
+                        {
+                            "name": deposit["depId"],
+                            "bank_account_id": bank_account.id,
+                        }
+                    )
                     transactions |= transaction
-                self.env["crypto.transaction.source"].create({
-                    "transaction_id": transaction[0].id,
-                    "provider_source": "deposit",
-                    "raw": json.dumps(deposit),
-                })
+                self.env["crypto.transaction.source"].create(
+                    {
+                        "transaction_id": transaction[0].id,
+                        "provider_source": "deposit",
+                        "raw": json.dumps(deposit),
+                    }
+                )
 
             all_transactions |= transactions
         return all_transactions
@@ -88,9 +92,7 @@ class ResPartnerBank(models.Model):
                 continue
 
             for withdrawal in result["data"]:
-                transaction = transactions.filtered(
-                    lambda x: x.name == withdrawal["wdId"]
-                )
+                transaction = transactions.filtered(lambda x: x.name == withdrawal["wdId"])
                 if not transaction:
                     exists = self.env["crypto.transaction"].search(
                         [
@@ -102,16 +104,20 @@ class ResPartnerBank(models.Model):
                     )
                     if exists:
                         continue
-                    transaction = self.env["crypto.transaction"].create({
-                        "name": withdrawal["wdId"],
-                        "bank_account_id": bank_account.id,
-                    })
+                    transaction = self.env["crypto.transaction"].create(
+                        {
+                            "name": withdrawal["wdId"],
+                            "bank_account_id": bank_account.id,
+                        }
+                    )
                     transactions |= transaction
-                self.env["crypto.transaction.source"].create({
-                    "transaction_id": transaction[0].id,
-                    "provider_source": "withdrawal",
-                    "raw": json.dumps(withdrawal),
-                })
+                self.env["crypto.transaction.source"].create(
+                    {
+                        "transaction_id": transaction[0].id,
+                        "provider_source": "withdrawal",
+                        "raw": json.dumps(withdrawal),
+                    }
+                )
 
             all_transactions |= transactions
         return all_transactions

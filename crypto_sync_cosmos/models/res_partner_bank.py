@@ -75,11 +75,7 @@ class ResPartnerBank(models.Model):
             data = graphql_request(bank_account.bank_id.cosmos_graphql_url, payload)
 
             if "errors" in data:
-                raise UserError(
-                    _("An error was returned by the Cosmos API:\n{errors}").format(
-                        **data
-                    )
-                )
+                raise UserError(_("An error was returned by the Cosmos API:\n{errors}").format(**data))
 
             for tx in data["action_messages"]:
                 transaction_hash = tx["transaction_hash"]
@@ -93,15 +89,19 @@ class ResPartnerBank(models.Model):
                         limit=1,
                     )
                 if not transaction:
-                    transaction = self.env["crypto.transaction"].create({
-                        "name": transaction_hash,
-                        "bank_account_id": bank_account.id,
-                    })
+                    transaction = self.env["crypto.transaction"].create(
+                        {
+                            "name": transaction_hash,
+                            "bank_account_id": bank_account.id,
+                        }
+                    )
                 transactions |= transaction
-                self.env["crypto.transaction.source"].create({
-                    "transaction_id": transaction[0].id,
-                    "raw": json.dumps(tx),
-                })
+                self.env["crypto.transaction.source"].create(
+                    {
+                        "transaction_id": transaction[0].id,
+                        "raw": json.dumps(tx),
+                    }
+                )
 
             bank_account.cosmos_offset += len(data["action_messages"])
             all_transactions |= transactions
@@ -115,6 +115,4 @@ class ResPartnerBank(models.Model):
             elif wallet.acc_number.startswith("n1"):
                 explorer = "nyx"
 
-            wallet.explorer_link = "https://www.mintscan.io/{}/address/{}/".format(
-                explorer, wallet.acc_number
-            )
+            wallet.explorer_link = "https://www.mintscan.io/{}/address/{}/".format(explorer, wallet.acc_number)

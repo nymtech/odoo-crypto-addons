@@ -2,7 +2,7 @@
 _commit: v1.1.0
 _src_path: git@gitlab.open-net.ch:ons/ons-addons-repo-template.git
 enable_ci: true
-modules_name: crypto_kit,crypto_rate,crypto_rate_coingecko,crypto_sync,crypto_sync_etherscan,crypto_sync_kraken,account_accountant_crypto
+modules_name: crypto_kit,crypto_rate,crypto_rate_coingecko,crypto_sync,crypto_sync_cosmos,crypto_sync_etherscan,crypto_sync_kraken,crypto_sync_okx,account_accountant_crypto
 odoo_version: 14.0
 org_name: Open Net Sàrl
 org_slug: ons
