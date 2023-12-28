@@ -20,11 +20,7 @@ class ResCurrency(models.Model):
 
         for currency in self.filtered(lambda x: x.crypto_rate_provider == "coingecko"):
             if not currency.coingecko_api_code:
-                raise UserError(
-                    _(
-                        "Unable to get rates without the CoinGecko API ID. Please fill it."
-                    )
-                )
+                raise UserError(_("Unable to get rates without the CoinGecko API ID. Please fill it."))
 
             url = "https://api.coingecko.com/api/v3/coins/{}/history?date={}".format(
                 currency.coingecko_api_code, rate_date.strftime("%d-%m-%Y")
@@ -34,30 +30,29 @@ class ResCurrency(models.Model):
 
             if "status" in data:
                 raise UserError(
-                    _(
-                        "An error {error_code} was returned by the CoinGecko API:\n{error_message}"
-                    ).format(**data["status"])
+                    _("An error {error_code} was returned by the CoinGecko API:\n{error_message}").format(
+                        **data["status"]
+                    )
                 )
 
             all_rates = data["market_data"]["current_price"]
             code = self.env.company.currency_id.name.lower()
             if code not in all_rates:
                 raise UserError(
-                    _("CoinGecko does not provide value in {ccy}. Please contact us."
-                     ).format(ccy=code.upper())
+                    _("CoinGecko does not provide value in {ccy}. Please contact us.").format(ccy=code.upper())
                 )
             inverse_rate = all_rates[code]
             if inverse_rate == 0:
-                raise UserError(
-                    _("The rate provided by CoinGecko is 0. Please contact us.")
-                )
+                raise UserError(_("The rate provided by CoinGecko is 0. Please contact us."))
             rate = 1 / inverse_rate
 
-            self.env["res.currency.rate"].create({
-                "name": rate_date,
-                "currency_id": currency.id,
-                "company_rate": rate,
-            })
+            self.env["res.currency.rate"].create(
+                {
+                    "name": rate_date,
+                    "currency_id": currency.id,
+                    "company_rate": rate,
+                }
+            )
 
     def open_on_coingecko(self):
         self.ensure_one()

@@ -1,0 +1,10 @@
+# Do NOT update manually; changes here will be overwritten by Copier
+_commit: v1.1.0
+_src_path: git@gitlab.open-net.ch:ons/ons-addons-repo-template.git
+enable_ci: true
+modules_name: crypto_kit,crypto_rate,crypto_rate_coingecko,account_accountant_crypto
+odoo_version: 15.0
+org_name: Open Net Sàrl
+org_slug: ons
+repo_name: CryptoKit
+repo_slug: onsp_cryptocurrency
