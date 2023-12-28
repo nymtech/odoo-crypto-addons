@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 {
     "name": "CryptoKit",
-    "version": "14.0.0.2.0",
+    "version": "15.0.0.1.0",
     "description": """
 Cryptocurrency base module for Odoo
 """,
     "author": "Yannis Burkhalter",
-    "website": "https://github.com/nymtech-odoo/crypto_kit/tree/14.0",
+    "website": "https://github.com/nymtech-odoo/crypto_kit/tree/15.0",
     "license": "AGPL-3",
     "category": "Accounting",
     "depends": ["account"],
