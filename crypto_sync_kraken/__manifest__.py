@@ -2,8 +2,7 @@
 {
     "name": "CryptoSync: Kraken",
     "version": "14.0.0.2.0",
-    "description":
-        """
+    "description": """
 Sync transactions from a [Kraken](https://www.kraken.com/) account
 """,
     "author": "Yannis Burkhalter",

@@ -22,12 +22,13 @@ class ResPartnerBank(models.Model):
             transactions = self.env["crypto.transaction"]
 
             for source in ("txlist", "txlistinternal", "tokentx"):
-
-                data = self._etherscan_request({
-                    "action": source,
-                    "address": bank_account.acc_number.lower(),
-                    "apikey": bank_account.bank_id.etherscan_api_key or "",
-                })
+                data = self._etherscan_request(
+                    {
+                        "action": source,
+                        "address": bank_account.acc_number.lower(),
+                        "apikey": bank_account.bank_id.etherscan_api_key or "",
+                    }
+                )
 
                 for tx in data:
                     transaction = transactions.filtered(lambda x: x.name == tx["hash"])
@@ -44,16 +45,20 @@ class ResPartnerBank(models.Model):
                             # If the main transaction already exists, we have to not create the children
                             # because all children are created in the same time, so all of them alway exist
                             continue
-                        transaction = self.env["crypto.transaction"].create({
-                            "name": tx["hash"],
-                            "bank_account_id": bank_account.id,
-                        })
+                        transaction = self.env["crypto.transaction"].create(
+                            {
+                                "name": tx["hash"],
+                                "bank_account_id": bank_account.id,
+                            }
+                        )
                         transactions |= transaction
-                    self.env["crypto.transaction.source"].create({
-                        "transaction_id": transaction[0].id,
-                        "provider_source": source,
-                        "raw": json.dumps(tx),
-                    })
+                    self.env["crypto.transaction.source"].create(
+                        {
+                            "transaction_id": transaction[0].id,
+                            "provider_source": source,
+                            "raw": json.dumps(tx),
+                        }
+                    )
 
             all_transactions |= transactions
         bank_accounts.crypto_sync_done = True
@@ -66,9 +71,7 @@ class ResPartnerBank(models.Model):
         )
         if not params.get("apikey"):
             last_call = float(
-                self.env["ir.config_parameter"].sudo().get_param(
-                    "crypto_sync_etherscan.last_call_timestamp", 0
-                )
+                self.env["ir.config_parameter"].sudo().get_param("crypto_sync_etherscan.last_call_timestamp", 0)
             )
             s = max(0, DELAY - (time.time() - last_call))
             if s:
@@ -78,18 +81,12 @@ class ResPartnerBank(models.Model):
         _logger.info("GET " + url)
         data = requests.get(url).json()
 
-        self.env["ir.config_parameter"].sudo().set_param(
-            "crypto_sync_etherscan.last_call_timestamp", time.time()
-        )
+        self.env["ir.config_parameter"].sudo().set_param("crypto_sync_etherscan.last_call_timestamp", time.time())
 
         if data["status"] == "0":
             if data["message"] == "No transactions found":
                 return []
-            raise UserError(
-                _("An error was returned by the Etherscan API:\n{result}").format(
-                    **data
-                )
-            )
+            raise UserError(_("An error was returned by the Etherscan API:\n{result}").format(**data))
         return data["result"]
 
     def _compute_explorer_link(self):

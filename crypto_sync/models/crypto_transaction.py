@@ -6,9 +6,7 @@ class CryptoTransaction(models.Model):
     _description = "Cryptocurrency Transaction"
 
     name = fields.Char("Transaction Identifier", readonly=True)
-    bank_account_id = fields.Many2one(
-        "res.partner.bank", string="Wallet", readonly=True, ondelete="restrict"
-    )
+    bank_account_id = fields.Many2one("res.partner.bank", string="Wallet", readonly=True, ondelete="restrict")
     explorer_link = fields.Char("Explorer Link", compute="_compute_explorer_link")
 
     state = fields.Selection(
@@ -25,12 +23,8 @@ class CryptoTransaction(models.Model):
         readonly=True,
     )
     error = fields.Text("Error Description", readonly=True)
-    input_ids = fields.One2many(
-        "crypto.transaction.source", "transaction_id", string="Input", readonly=True
-    )
-    output_ids = fields.One2many(
-        "crypto.transaction.detail", "transaction_id", string="Output", readonly=True
-    )
+    input_ids = fields.One2many("crypto.transaction.source", "transaction_id", string="Input", readonly=True)
+    output_ids = fields.One2many("crypto.transaction.detail", "transaction_id", string="Output", readonly=True)
 
     def reset(self):  # output: [draft]
         self = self.filtered(lambda x: x.state in ("draft", "error", "ready"))
@@ -60,9 +54,7 @@ class CryptoTransaction(models.Model):
         ).state = "ignored"
 
     def revert_ignore_rest(self):  # output: [ready|partially]
-        self.filtered(lambda x: x.state in ("done")).output_ids.filtered(
-            lambda x: x.state == "ignored"
-        ).state = "ready"
+        self.filtered(lambda x: x.state in ("done")).output_ids.filtered(lambda x: x.state == "ignored").state = "ready"
 
     def _recompute_state(self):  # output: [ready|partially|done]
         self = self.filtered(lambda x: x.state in ("ready", "partially", "done"))

@@ -1,5 +1,9 @@
+import logging
+
 from odoo import _, fields, models
 from odoo.exceptions import UserError
+
+_logger = logging.getLogger(__name__)
 
 
 class ResCurrency(models.Model):
@@ -22,9 +26,7 @@ class ResCurrency(models.Model):
                 count=True,
             ):
                 raise UserError(
-                    _("A rate already exists for {ccy} on {date}.").format(
-                        ccy=currency.name, date=rate_date
-                    )
+                    _("A rate already exists for {ccy} on {date}.").format(ccy=currency.name, date=rate_date)
                 )
 
     def action_crypto_currency_rate_wizard(self):
@@ -46,5 +48,5 @@ class ResCurrency(models.Model):
         for currency in currencies:
             try:
                 currency.get_crypto_currency_rate()
-            except Exception:
-                pass
+            except Exception as e:
+                _logger.error(e)
