@@ -1,0 +1,141 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* crypto_sync_kraken
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-01 13:05+0000\n"
+"PO-Revision-Date: 2024-02-01 13:05+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: crypto_sync_kraken
+#: model:ir.model,name:crypto_sync_kraken.model_res_bank
+msgid "Bank"
+msgstr "Banque"
+
+#. module: crypto_sync_kraken
+#: model:ir.model,name:crypto_sync_kraken.model_res_partner_bank
+msgid "Bank Accounts"
+msgstr "Comptes bancaires"
+
+#. module: crypto_sync_kraken
+#: model:ir.model,name:crypto_sync_kraken.model_account_bank_statement
+msgid "Bank Statement"
+msgstr "Relevé bancaire"
+
+#. module: crypto_sync_kraken
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_res_bank__crypto_provider
+msgid "Crypto Provider"
+msgstr "Source des données"
+
+#. module: crypto_sync_kraken
+#: model:ir.model,name:crypto_sync_kraken.model_crypto_transaction
+msgid "Cryptocurrency Transaction"
+msgstr "Transaction cryptomonnaie"
+
+#. module: crypto_sync_kraken
+#: model:ir.model,name:crypto_sync_kraken.model_crypto_transaction_source
+msgid "Cryptocurrency Transaction Source"
+msgstr "Source de transaction cryptomonnaie"
+
+#. module: crypto_sync_kraken
+#: model:ir.model,name:crypto_sync_kraken.model_res_currency
+msgid "Currency"
+msgstr "Devise"
+
+#. module: crypto_sync_kraken
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_account_bank_statement__display_name
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_crypto_transaction__display_name
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_crypto_transaction_source__display_name
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_res_bank__display_name
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_res_currency__display_name
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_res_partner_bank__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: crypto_sync_kraken
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_account_bank_statement__id
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_crypto_transaction__id
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_crypto_transaction_source__id
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_res_bank__id
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_res_currency__id
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_res_partner_bank__id
+msgid "ID"
+msgstr "ID"
+
+#. module: crypto_sync_kraken
+#: model:ir.model.fields.selection,name:crypto_sync_kraken.selection__res_bank__crypto_provider__kraken
+msgid "Kraken"
+msgstr "Kraken"
+
+#. module: crypto_sync_kraken
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_res_currency__kraken_api_code
+msgid "Kraken API Code"
+msgstr "Code de l'API Kraken"
+
+#. module: crypto_sync_kraken
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_account_setup_bank_manual_config__kraken_api_key
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_res_partner_bank__kraken_api_key
+msgid "Kraken API Key"
+msgstr "Clé d'API Kraken"
+
+#. module: crypto_sync_kraken
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_account_setup_bank_manual_config__kraken_ledger_end
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_res_partner_bank__kraken_ledger_end
+msgid "Kraken Ledger End"
+msgstr "Kraken Ledger End"
+
+#. module: crypto_sync_kraken
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_account_setup_bank_manual_config__kraken_ledger_ofs
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_res_partner_bank__kraken_ledger_ofs
+msgid "Kraken Ledger Offset"
+msgstr "Kraken Ledger Offset"
+
+#. module: crypto_sync_kraken
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_account_setup_bank_manual_config__kraken_ledger_start
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_res_partner_bank__kraken_ledger_start
+msgid "Kraken Ledger Start"
+msgstr "Kraken Ledger Start"
+
+#. module: crypto_sync_kraken
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_account_setup_bank_manual_config__kraken_api_sec
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_res_partner_bank__kraken_api_sec
+msgid "Kraken Private Key"
+msgstr "Clé privée Kraken"
+
+#. module: crypto_sync_kraken
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_account_bank_statement____last_update
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_crypto_transaction____last_update
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_crypto_transaction_source____last_update
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_res_bank____last_update
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_res_currency____last_update
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_res_partner_bank____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: crypto_sync_kraken
+#: model:ir.model.fields.selection,name:crypto_sync_kraken.selection__crypto_transaction_source__provider_source__ledger
+msgid "Ledger"
+msgstr "Ledger"
+
+#. module: crypto_sync_kraken
+#: model_terms:ir.ui.view,arch_db:crypto_sync_kraken.view_res_partner_bank_form_crypto_kraken
+msgid "Reset"
+msgstr "RAZ"
+
+#. module: crypto_sync_kraken
+#: model:ir.model.fields,field_description:crypto_sync_kraken.field_crypto_transaction_source__provider_source
+msgid "Source"
+msgstr "Source"
+
+#. module: crypto_sync_kraken
+#: model:ir.model.fields.selection,name:crypto_sync_kraken.selection__crypto_transaction_source__provider_source__trades
+msgid "Trades"
+msgstr "Trades"

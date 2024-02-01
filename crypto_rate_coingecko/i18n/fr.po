@@ -1,0 +1,84 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* crypto_rate_coingecko
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-01 10:30+0000\n"
+"PO-Revision-Date: 2024-02-01 10:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: crypto_rate_coingecko
+#: code:addons/crypto_rate_coingecko/models/res_currency.py:0
+#, python-format
+msgid ""
+"An error {error_code} was returned by the CoinGecko API:\n"
+"{error_message}"
+msgstr ""
+"Une erreur {error_code} a été retournée par l'API de CoinGecko :\n"
+"{error_message}"
+
+#. module: crypto_rate_coingecko
+#: model:ir.model.fields.selection,name:crypto_rate_coingecko.selection__res_currency__crypto_rate_provider__coingecko
+msgid "CoinGecko"
+msgstr "CoinGecko"
+
+#. module: crypto_rate_coingecko
+#: model:ir.model.fields,field_description:crypto_rate_coingecko.field_res_currency__coingecko_api_code
+msgid "CoinGecko API ID"
+msgstr "ID de l'API CoinGecko"
+
+#. module: crypto_rate_coingecko
+#: code:addons/crypto_rate_coingecko/models/res_currency.py:0
+#, python-format
+msgid "CoinGecko does not provide value in {ccy}. Please contact us."
+msgstr "CoinGecko ne fournit pas les taux de la devise {ccy}. Veuillez contacter votre administrateur."
+
+#. module: crypto_rate_coingecko
+#: model:ir.model.fields,field_description:crypto_rate_coingecko.field_res_currency__crypto_rate_provider
+msgid "Crypto Rate Provider"
+msgstr "Source des taux"
+
+#. module: crypto_rate_coingecko
+#: model:ir.model,name:crypto_rate_coingecko.model_res_currency
+msgid "Currency"
+msgstr "Devise"
+
+#. module: crypto_rate_coingecko
+#: model:ir.model.fields,field_description:crypto_rate_coingecko.field_res_currency__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: crypto_rate_coingecko
+#: model:ir.model.fields,field_description:crypto_rate_coingecko.field_res_currency__id
+msgid "ID"
+msgstr "ID"
+
+#. module: crypto_rate_coingecko
+#: model:ir.model.fields,field_description:crypto_rate_coingecko.field_res_currency____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: crypto_rate_coingecko
+#: model_terms:ir.ui.view,arch_db:crypto_rate_coingecko.view_res_currency_form_crypto_rate_coingecko
+msgid "Open on CoinGecko"
+msgstr "Ouvrir sur CoinGecko"
+
+#. module: crypto_rate_coingecko
+#: code:addons/crypto_rate_coingecko/models/res_currency.py:0
+#, python-format
+msgid "The rate provided by CoinGecko is 0. Please contact us."
+msgstr "Le taux fourni par par CoinGecko est 0. Contactez-nous."
+
+#. module: crypto_rate_coingecko
+#: code:addons/crypto_rate_coingecko/models/res_currency.py:0
+#, python-format
+msgid "Unable to get rates without the CoinGecko API ID. Please fill it."
+msgstr "Impossible de récupérer le taux sans l'ID de l'API CoinGecko. Veuillez le définir SVP."

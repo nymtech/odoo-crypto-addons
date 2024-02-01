@@ -1,0 +1,86 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* crypto_kit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-01 10:19+0000\n"
+"PO-Revision-Date: 2024-02-01 10:19+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: crypto_kit
+#: model:ir.model,name:crypto_kit.model_res_bank
+msgid "Bank"
+msgstr "Banque"
+
+#. module: crypto_kit
+#: model:ir.model.fields,field_description:crypto_kit.field_res_bank__crypto_provider
+msgid "Crypto Provider"
+msgstr "Source des données"
+
+#. module: crypto_kit
+#: model_terms:ir.ui.view,arch_db:crypto_kit.view_res_currency_search_crypto
+msgid "Crypto/FIAT"
+msgstr "Crypto/FIAT"
+
+#. module: crypto_kit
+#: model:ir.ui.menu,name:crypto_kit.menu_crypto_main
+#: model:res.groups,name:crypto_kit.group_crypto
+msgid "Cryptocurrencies"
+msgstr "Cryptomonnaies"
+
+#. module: crypto_kit
+#: model_terms:ir.ui.view,arch_db:crypto_kit.view_res_currency_form_crypto
+msgid "Cryptocurrency Settings"
+msgstr "Cryptomonnaies"
+
+#. module: crypto_kit
+#: model:ir.model.fields,field_description:crypto_kit.field_res_currency__is_crypto
+msgid "Cryptocurrency?"
+msgstr "Cryptomonnaie ?"
+
+#. module: crypto_kit
+#: model:ir.model,name:crypto_kit.model_res_currency
+#: model:ir.model.fields,field_description:crypto_kit.field_res_currency__name
+msgid "Currency"
+msgstr "Devise"
+
+#. module: crypto_kit
+#: model:ir.model.fields,help:crypto_kit.field_res_currency__name
+msgid "Currency Code (ISO 4217)"
+msgstr "Code de la devise (ISO 4217)"
+
+#. module: crypto_kit
+#: model:ir.model.fields,field_description:crypto_kit.field_res_bank__display_name
+#: model:ir.model.fields,field_description:crypto_kit.field_res_currency__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: crypto_kit
+#: model:res.groups,comment:crypto_kit.group_crypto
+msgid "Group to see cryptocurrency fields and menus."
+msgstr "Accès aux champs et menus liés aux cryptomonnaies"
+
+#. module: crypto_kit
+#: model:ir.model.fields,field_description:crypto_kit.field_res_bank__id
+#: model:ir.model.fields,field_description:crypto_kit.field_res_currency__id
+msgid "ID"
+msgstr "ID"
+
+#. module: crypto_kit
+#: model:ir.model.fields,field_description:crypto_kit.field_res_bank____last_update
+#: model:ir.model.fields,field_description:crypto_kit.field_res_currency____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: crypto_kit
+#: model:ir.model.fields,field_description:crypto_kit.field_res_currency__rounding
+msgid "Rounding Factor"
+msgstr "Facteur d'arrondi"

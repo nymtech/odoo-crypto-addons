@@ -1,0 +1,192 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* crypto_sync_etherscan
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-01 13:05+0000\n"
+"PO-Revision-Date: 2024-02-01 13:05+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: crypto_sync_etherscan
+#: code:addons/crypto_sync_etherscan/models/account_bank_statement.py:0
+#, python-format
+msgid ""
+"An Etherscan API PRO is required to get historical balance.\n"
+"You must provide a pro API key on the bank configuration."
+msgstr ""
+"Le plan Etherscan API PRO est nécessaire pour récupérer l'historique du solde"
+"Veuillez introduire la clé d'API dans les paramètres de la banque."
+
+#. module: crypto_sync_etherscan
+#: code:addons/crypto_sync_etherscan/models/res_partner_bank.py:0
+#, python-format
+msgid ""
+"An error was returned by the Etherscan API:\n"
+"{result}"
+msgstr ""
+"Une erreur {error_code} a été retournée par l'API d'Etherscan :\n"
+"{result}"
+
+#. module: crypto_sync_etherscan
+#: model:ir.model,name:crypto_sync_etherscan.model_res_bank
+msgid "Bank"
+msgstr "Banque"
+
+#. module: crypto_sync_etherscan
+#: model:ir.model,name:crypto_sync_etherscan.model_res_partner_bank
+msgid "Bank Accounts"
+msgstr "Comptes bancaires"
+
+#. module: crypto_sync_etherscan
+#: model:ir.model,name:crypto_sync_etherscan.model_account_bank_statement
+msgid "Bank Statement"
+msgstr "Relevé bancaire"
+
+#. module: crypto_sync_etherscan
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_res_bank__crypto_provider
+msgid "Crypto Provider"
+msgstr "Source des données"
+
+#. module: crypto_sync_etherscan
+#: model:ir.model,name:crypto_sync_etherscan.model_crypto_transaction
+msgid "Cryptocurrency Transaction"
+msgstr "Transaction crypto"
+
+#. module: crypto_sync_etherscan
+#: model:ir.model,name:crypto_sync_etherscan.model_crypto_transaction_source
+msgid "Cryptocurrency Transaction Source"
+msgstr "Source de transaction cryptomonnaie"
+
+#. module: crypto_sync_etherscan
+#: model:ir.model,name:crypto_sync_etherscan.model_res_currency
+msgid "Currency"
+msgstr "Devise"
+
+#. module: crypto_sync_etherscan
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_account_bank_statement__display_name
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_crypto_transaction__display_name
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_crypto_transaction_source__display_name
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_res_bank__display_name
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_res_currency__display_name
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_res_partner_bank__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: crypto_sync_etherscan
+#: code:addons/crypto_sync_etherscan/models/crypto_transaction.py:0
+#, python-format
+msgid ""
+"ETH currency not found. Please, create the ETH currency and set the field "
+"\"Ethereum Smart Contract\" to \"ETH\"."
+msgstr ""
+"La devise ETH n'a pas été trouvée. Veuillez créer la devise ETH et renseigner "
+"\"ETH\" dans le champ \"Smart contract Ethereum\"."
+
+#. module: crypto_sync_etherscan
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_res_currency__ethereum_smart_contract
+msgid "Ethereum Smart Contract"
+msgstr "Smart contract Ethereum"
+
+#. module: crypto_sync_etherscan
+#: model:ir.model.fields.selection,name:crypto_sync_etherscan.selection__res_bank__crypto_provider__etherscan
+msgid "Etherscan"
+msgstr "Etherscan"
+
+#. module: crypto_sync_etherscan
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_res_bank__etherscan_api_key
+msgid "Etherscan API Key"
+msgstr "Clé d'API Etherscan"
+
+#. module: crypto_sync_etherscan
+#: model:ir.model.fields,help:crypto_sync_etherscan.field_res_currency__ethereum_smart_contract
+msgid "For Ether itself, set to \"ETH\"."
+msgstr "Pour l'Ether, renseigner \"ETH\"."
+
+#. module: crypto_sync_etherscan
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_account_bank_statement__id
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_crypto_transaction__id
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_crypto_transaction_source__id
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_res_bank__id
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_res_currency__id
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_res_partner_bank__id
+msgid "ID"
+msgstr "ID"
+
+#. module: crypto_sync_etherscan
+#: model:ir.model.fields.selection,name:crypto_sync_etherscan.selection__crypto_transaction_source__provider_source__txlistinternal
+msgid "Internal"
+msgstr "Interne"
+
+#. module: crypto_sync_etherscan
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_account_bank_statement____last_update
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_crypto_transaction____last_update
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_crypto_transaction_source____last_update
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_res_bank____last_update
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_res_currency____last_update
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_res_partner_bank____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: crypto_sync_etherscan
+#: code:addons/crypto_sync_etherscan/models/crypto_transaction.py:0
+#, python-format
+msgid ""
+"No currency found with smart contract: {contractAddress}\n"
+"Additional infos:\n"
+"- Token name: {tokenName}\n"
+"- Token symbol: {tokenSymbol}\n"
+"If you don't know this token, you should add its contract address on the blacklist.\n"
+"Otherwise, you have to create the currency and set the field \"Ethereum Smart Contract\" to \"{contractAddress}\"."
+msgstr ""
+"Aucune devise trouvée pour le smart contract {contractAddress}\n"
+"Informations supplémentaires :\n"
+"- Nom du token: {tokenName}\n"
+"- Symbole du token: {tokenSymbol}\n"
+"Si vous ne connaissez pas ce token, vous devriez l'ajouter à la blacklist.\n"
+"Dans le cas contraire, créez la devise et renseigner \"{contractAddress}\" dans le champ \"Smart contract Ethereum\"."
+
+#. module: crypto_sync_etherscan
+#: model:ir.model.fields.selection,name:crypto_sync_etherscan.selection__crypto_transaction_source__provider_source__txlist
+msgid "Normal"
+msgstr "Normal"
+
+#. module: crypto_sync_etherscan
+#: model:ir.model.fields,field_description:crypto_sync_etherscan.field_crypto_transaction_source__provider_source
+msgid "Source"
+msgstr "Source"
+
+#. module: crypto_sync_etherscan
+#: code:addons/crypto_sync_etherscan/models/res_currency.py:0
+#, python-format
+msgid "The Ethereum smart contract must be 42 characters long including \"0x\"."
+msgstr "Le smart contract doitt contenir exactement 42 caractères, en incluant \"0x\"."
+
+#. module: crypto_sync_etherscan
+#: code:addons/crypto_sync_etherscan/models/res_currency.py:0
+#, python-format
+msgid "The Ethereum smart contract must start with \"0x\"."
+msgstr "Le smart contract doit commencer par \"0x\"."
+
+#. module: crypto_sync_etherscan
+#: model:ir.model.fields.selection,name:crypto_sync_etherscan.selection__crypto_transaction_source__provider_source__tokentx
+msgid "Token"
+msgstr "Token"
+
+#. module: crypto_sync_etherscan
+#: code:addons/crypto_sync_etherscan/models/crypto_transaction.py:0
+#, python-format
+msgid "Unknown internal transaction type! Please contact us."
+msgstr "Transaction interne inconnue ! Veuillez nous contacter SVP."
+
+#. module: crypto_sync_etherscan
+#: model_terms:ir.ui.view,arch_db:crypto_sync_etherscan.view_res_currency_form_crypto_etherscan
+msgid "View on Etherscan"
+msgstr "Ouvrir sur Etherscan"
