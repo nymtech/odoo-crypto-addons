@@ -58,13 +58,11 @@ class CryptoTransactionDetail(models.Model):
 
         statements = self._generate_statement_lines(group_by)
         statements = self._slit_statements(statements)
-        statements = self._clean_statements(statements)
+        statements = self._clean_statements(statements, group_by)
 
-        ids = []
-        for statement in statements:
-            ids.append(self.env["account.bank.statement"].create(statement).id)
+        ids = self.env["account.bank.statement"].create(statements).ids
 
-            # recompute balances
+        # recompute balances
 
         return {
             "type": "ir.actions.act_window",
@@ -169,13 +167,15 @@ class CryptoTransactionDetail(models.Model):
             first = min([line[2] for line in statement["line_ids"]], key=lambda l: l["date"])
             last = max([line[2] for line in statement["line_ids"]], key=lambda l: l["date"])
             if not group_by:
-                if first["date"] == last["date"]:
-                    statement["name"] += " - {}".format(first["date"])
+                date_from = first["date"].date()
+                date_to = last["date"].date()
+                if date_from == date_to:
+                    statement["name"] += " - {}".format(date_from)
                 else:
-                    statement["name"] += " - {}-{}".format(first["date"], last["date"])
-                statement["date"] = last["date"]
+                    statement["name"] += " - {}-{}".format(date_from, date_to)
+                statement["date"] = date_to
             elif group_by == "week":
-                statement["name"] += " - {}, Week {}".format(*statement["_period"])
+                statement["name"] += " - {}, {} {}".format(statement["_period"][0], _("Week"), statement["_period"][1])
                 statement["date"] = date.fromisocalendar(*statement["_period"], 7)
             elif group_by == "month":
                 statement["name"] += " - {} {}".format(

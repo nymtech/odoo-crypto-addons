@@ -532,6 +532,12 @@ msgid "Wallets"
 msgstr "Wallets"
 
 #. module: crypto_sync
+#: code:addons/crypto_sync/models/crypto_transaction_detail.py:0
+#, python-format
+msgid "Week"
+msgstr "Semaine"
+
+#. module: crypto_sync
 #: model:ir.ui.menu,name:crypto_sync.menu_crypto_wizards
 msgid "Wizards"
 msgstr "Assistants"
